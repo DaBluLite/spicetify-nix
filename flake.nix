@@ -50,6 +50,7 @@
             isNixOSModule = true;
           };
           default = self.nixosModules.spicetify;
+          packages.x86_64-linux.default = self.nixosModules.spicetify;
         };
 
         legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
