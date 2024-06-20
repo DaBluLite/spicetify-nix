@@ -50,7 +50,6 @@
             isNixOSModule = true;
           };
           default = self.nixosModules.spicetify;
-          packages.x86_64-linux.default = self.nixosModules.spicetify;
         };
 
         legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
@@ -58,6 +57,8 @@
         formatter.${system} = pkgs.nixfmt-rfc-style;
 
         devShells.${system}.default = pkgs.mkShell { packages = [ pkgs.npins ]; };
+
+        packages.x86_64-linux.default = self.nixosModules.spicetify;
       }
     );
 }
